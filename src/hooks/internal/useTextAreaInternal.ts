@@ -103,7 +103,16 @@ export const useTextAreaInternal = () => {
 			inputRef.current.focus();
 		}
 	}, [textAreaDisabled]);
-
+	
+	/**
+	 * Removes focus from text area.
+	 */
+	const unfocusTextArea = useCallback(() => {
+		if (inputRef.current) {
+			inputRef.current.blur();
+		}
+	}, []);
+	
 	/**
 	 * Retrieves text area value.
 	 */
@@ -140,6 +149,7 @@ export const useTextAreaInternal = () => {
 		setTextAreaValue,
 		updateTextAreaFocus,
 		focusTextArea,
+		unFocusTextArea,
 		toggleTextAreaDisabled,
 		toggleTextAreaSensitiveMode
 	};
